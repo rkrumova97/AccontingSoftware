@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.text.Font?>
+<Pane maxHeight="400.0" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.zmu.fx_controller.HomeController">
+    <children>
+        <TitledPane prefHeight="113.0" prefWidth="600.0" text="ZMU Enterprise Software">
+            <content>
+                <TextArea prefHeight="200.0" prefWidth="200.0"
+                          text="                &#10;                 Welcome to the ZMU Enterprise Software!"/>
+            </content>
+        </TitledPane>
+        <TilePane alignment="CENTER" layoutX="3.0" layoutY="191.0" prefHeight="127.0" prefWidth="595.0">
+            <children>
+                <Button fx:id="accounting" mnemonicParsing="false" prefHeight="59.0" prefWidth="145.0"
+                        text="Счетоводство"/>
+                <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="137.0" text="Личен състав"/>
+            </children>
+        </TilePane>
+        <Label layoutX="110.0" layoutY="138.0" prefHeight="53.0" prefWidth="382.0" text="Избери с какво да продължиш:"
+               textAlignment="CENTER">
+            <font>
+                <Font name="Comic Sans MS" size="25.0"/>
+            </font>
+        </Label>
+    </children>
+</Pane>

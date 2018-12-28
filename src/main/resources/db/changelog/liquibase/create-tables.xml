@@ -1,0 +1,74 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet id="1-20181125" author="RK">
+        <createTable tableName="good">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar"/>
+            <column name="measurement" type="varchar"/>
+            <column name="quantity" type="bigint"/>
+            <column name="price" type="bigint"/>
+            <column name="total_value" type="bigint"/>
+            <column name="number_of_invoice" type="bigint"/>
+            <column name="type" type="varchar" />
+        </createTable>
+        <createTable tableName="current_material">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="good_id" type="bigint"/>
+            <column name="project" type="bigint"/>
+        </createTable>
+        <createTable tableName="remaining_material">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="good_id" type="bigint"/>
+        </createTable>
+        <createTable tableName="new_material">
+            <column name="id" type = "bigint" autoIncrement="true">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="good_id" type="bigint"/>
+        </createTable>
+        <createTable tableName="machine">
+            <column name="id" type = "bigint" autoIncrement="true">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="good_id" type="bigint"/>
+            <column name="type" type="varchar"/>
+            <column name="repair" type="varchar"/>
+            <column name="scrapping" type="varchar"/>
+        </createTable>
+        <createTable tableName="type">
+            <column name="id" type = "bigint" autoIncrement="true">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar"/>
+        </createTable>
+        <createTable tableName="clothes">
+            <column name="id" type = "bigint" autoIncrement="true">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="type_id" type="bigint"/>
+            <column name="type" type="varchar"/>
+            <column name="number" type="smallint"/>
+            <column name="given" type="boolean" defaultValue="false"/>
+            <column name="used" type="boolean" defaultValue="false"/>
+        </createTable>
+        <createTable tableName="car">
+            <column name="id" type = "bigint" autoIncrement="true">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar"/>
+            <column name="number" type="bigint"/>
+            <column name="repair" type="varchar"/>
+            <column name="inspection" type="varchar"/>
+            <column name="insurance" type="varchar"/>
+            <column name="end_date_inspection" type="date"/>
+            <column name="end_date_insurance" type="date"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
