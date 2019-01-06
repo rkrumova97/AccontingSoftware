@@ -1,26 +1,19 @@
 package com.zmu;
 
-import com.zmu.fx_controller.AccountingController;
+import com.zmu.fxml.SpringFxmlLoader;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 public class ZmuApplication extends Application {
-    @Autowired
-    private AccountingController accountingController;
 
     private ConfigurableApplicationContext context;
     private Parent rootNode;
@@ -50,6 +43,7 @@ public class ZmuApplication extends Application {
         primaryStage.show();
 
     }
+
 
     @Override
     public void stop() throws Exception {

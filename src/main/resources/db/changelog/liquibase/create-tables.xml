@@ -18,7 +18,6 @@
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" unique="true" nullable="false"/>
             </column>
-            <column name="good_id" type="bigint"/>
             <column name="project" type="bigint"/>
         </createTable>
         <createTable tableName="remaining_material">
@@ -31,13 +30,11 @@
             <column name="id" type = "bigint" autoIncrement="true">
                 <constraints primaryKey="true" unique="true" nullable="false"/>
             </column>
-            <column name="good_id" type="bigint"/>
         </createTable>
         <createTable tableName="machine">
             <column name="id" type = "bigint" autoIncrement="true">
                 <constraints primaryKey="true" unique="true" nullable="false"/>
             </column>
-            <column name="good_id" type="bigint"/>
             <column name="type" type="varchar"/>
             <column name="repair" type="varchar"/>
             <column name="scrapping" type="varchar"/>
@@ -70,5 +67,18 @@
             <column name="end_date_inspection" type="date"/>
             <column name="end_date_insurance" type="date"/>
         </createTable>
+        <createTable tableName="project">
+            <column name="id" type = "bigint" autoIncrement="true">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1-20190106" author="RK">
+        <addForeignKeyConstraint baseTableName="current_material"
+                                 baseColumnNames="project"
+                                 constraintName="project_material"
+                                 referencedTableName="project"
+                                 referencedColumnNames="id"/>
     </changeSet>
 </databaseChangeLog>

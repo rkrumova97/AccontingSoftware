@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
@@ -17,6 +19,9 @@ public class HomeController {
     @FXML
     private Button accounting;
 
+    @Autowired
+    private ApplicationContext context;
+
     @FXML
     public void initialize() {
         accounting.setOnAction(e -> {
@@ -24,7 +29,10 @@ public class HomeController {
             Stage stage = (Stage) node.getScene().getWindow();
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("/templates/accounting.fxml"));
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/templates/accounting.fxml"));
+                loader.setControllerFactory(context::getBean);
+                root = loader.load();
+
             } catch (IOException e1) {
                 e1.printStackTrace();
             }

@@ -2,15 +2,15 @@ package com.zmu.fx_controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
@@ -19,6 +19,8 @@ import java.util.Objects;
 @Controller
 @Data
 public class AccountingController {
+    @Autowired
+    private ApplicationContext context;
 
     @FXML
     private Button home;
@@ -44,7 +46,9 @@ public class AccountingController {
             Stage stage = (Stage) node.getScene().getWindow();
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("/templates/reporting_page.fxml"));
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/templates/reporting_page.fxml"));
+                loader.setControllerFactory(context::getBean);
+                root = loader.load();
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
@@ -58,6 +62,7 @@ public class AccountingController {
             Stage stage = (Stage) node.getScene().getWindow();
             Parent root = null;
             try {
+
                 root = FXMLLoader.load(getClass().getResource("/templates/searching.fxml"));
             } catch (IOException e1) {
                 e1.printStackTrace();
