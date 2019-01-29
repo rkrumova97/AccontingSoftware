@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @Data
 @Table(name = "good")
@@ -36,4 +37,10 @@ public abstract class Good implements Serializable {
 
     @Column(name = "number_of_invoice")
     private Integer numberOfInvoice;
+
+    @Column(name = "date")
+    private LocalDate date;
+
+    @Column(name = "supplier")
+    private String supplier;
 }

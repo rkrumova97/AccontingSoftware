@@ -13,4 +13,7 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
+
+    @Column
+    private String name;
 }

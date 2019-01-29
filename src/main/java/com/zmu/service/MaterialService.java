@@ -1,9 +1,11 @@
 package com.zmu.service;
 
 import com.zmu.dto.MaterialDto;
-import com.zmu.model.CurrentMaterial;
+import com.zmu.model.Material;
 
 public interface MaterialService {
-    CurrentMaterial saveMaterial(MaterialDto newMaterialDto);
+    Material saveMaterial(MaterialDto newMaterialDto);
 
+    //TODO: Set project
+    void updateCurrent(MaterialDto materialDto);
 }

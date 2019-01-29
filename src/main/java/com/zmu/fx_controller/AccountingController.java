@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
@@ -39,8 +38,6 @@ public class AccountingController {
 
     @FXML
     public void initialize() {
-
-
         reporting.setOnAction(e -> {
             Node node = (Node) e.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
@@ -54,6 +51,8 @@ public class AccountingController {
             }
             Scene scene = new Scene(Objects.requireNonNull(root));
             stage.setScene(scene);
+            stage.setX(0);
+            stage.setY(0);
             stage.show();
         });
 
@@ -62,8 +61,9 @@ public class AccountingController {
             Stage stage = (Stage) node.getScene().getWindow();
             Parent root = null;
             try {
-
-                root = FXMLLoader.load(getClass().getResource("/templates/searching.fxml"));
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/templates/viewer.fxml"));
+                loader.setControllerFactory(context::getBean);
+                root = loader.load();
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
@@ -77,7 +77,9 @@ public class AccountingController {
             Stage stage = (Stage) node.getScene().getWindow();
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("/templates/projects.fxml"));
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/templates/projects.fxml"));
+                loader.setControllerFactory(context::getBean);
+                root = loader.load();
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
@@ -91,7 +93,9 @@ public class AccountingController {
             Stage stage = (Stage) node.getScene().getWindow();
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("/templates/statistics.fxml"));
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/templates/month_report.fxml"));
+                loader.setControllerFactory(context::getBean);
+                root = loader.load();
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
@@ -105,7 +109,9 @@ public class AccountingController {
             Stage stage = (Stage) node.getScene().getWindow();
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("/templates/start.fxml"));
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/templates/start.fxml"));
+                loader.setControllerFactory(context::getBean);
+                root = loader.load();
             } catch (IOException e1) {
                 e1.printStackTrace();
             }

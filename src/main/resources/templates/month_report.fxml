@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="641.0" prefWidth="977.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.zmu.fx_controller.UpdateController">
+    <children>
+        <Label layoutX="349.0" layoutY="14.0" text="Месечни отчети">
+            <font>
+                <Font name="Comic Sans MS" size="36.0"/>
+            </font>
+        </Label>
+        <TabPane layoutX="-2.0" layoutY="65.0" prefHeight="576.0" prefWidth="977.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Коли">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="531.0" prefWidth="957.0"/>
+                    </content>
+                </Tab>
+                <Tab text="Материали">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+                    </content>
+                </Tab>
+                <Tab text="Ремонти ">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="531.0" prefWidth="826.0"/>
+                    </content>
+                </Tab>
+                <Tab text="Бракуване на машини">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+                    </content>
+                </Tab>
+                <Tab text="Употреба на ЛПС">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Назад"/>
+    </children>
+</AnchorPane>

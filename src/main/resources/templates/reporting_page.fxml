@@ -2,11 +2,11 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<AnchorPane prefHeight="882.0" prefWidth="1029.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+<AnchorPane prefHeight="815.0" prefWidth="1047.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.zmu.fx_controller.ReportingController">
     <children>
         <TitledPane layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                    prefHeight="860.0" prefWidth="1029.0" text="ZMU Enterprise Software">
+                    prefHeight="817.0" prefWidth="1400.0" text="ZMU Enterprise Software">
             <content>
                 <Accordion prefHeight="777.0" prefWidth="874.0">
                     <panes>
@@ -20,67 +20,38 @@
                                                     <content>
                                                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                                             <children>
-                                                                <Label layoutX="117.0" layoutY="83.0"
+                                                                <Label layoutX="127.0" layoutY="50.0"
                                                                        text="Име на материал"/>
-                                                                <TextField fx:id="materialName" layoutX="317.0" layoutY="77.0"/>
-                                                                <Label layoutX="117.0" layoutY="134.0"
+                                                                <TextField fx:id="mDocument" layoutX="317.0"
+                                                                           layoutY="95.0"/>
+                                                                <Label layoutX="125.0" layoutY="101.0"
                                                                        text="№ на входна фактура"/>
-                                                                <Label layoutX="117.0" layoutY="194.0" text="Мярка"/>
-                                                                <Label layoutX="117.0" layoutY="257.0"
+                                                                <Label layoutX="126.0" layoutY="277.0" text="Мярка"/>
+                                                                <Label layoutX="127.0" layoutY="353.0"
                                                                        text="Количество"/>
-                                                                <Label layoutX="117.0" layoutY="320.0"
+                                                                <Label layoutX="127.0" layoutY="422.0"
                                                                        text="Единична цена"/>
-                                                                <Label layoutX="117.0" layoutY="370.0"
-                                                                       text="Обща стойност"/>
-                                                                <TextField fx:id="numberOfDocument" layoutX="317.0" layoutY="128.0"/>
-                                                                <TextField fx:id="quantity" layoutX="317.0" layoutY="251.0"/>
-                                                                <TextField fx:id="price" layoutX="317.0" layoutY="314.0"/>
-                                                                <TextField fx:id="totalPrice" layoutX="317.0" layoutY="364.0"/>
-                                                                <ComboBox fx:id="measurement" layoutX="317.0" layoutY="188.0"
-                                                                          prefHeight="39.0" prefWidth="225.0"/>
-                                                                <Button fx:id="saveMaterial" layoutX="391.0" layoutY="479.0"
-                                                                        mnemonicParsing="false" text="Запиши"/>
-                                                            </children>
-                                                        </AnchorPane>
-                                                    </content>
-                                                </Tab>
-                                                <Tab text="Текущи материали">
-                                                    <content>
-                                                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                                            <children>
-                                                                <Label layoutX="222.0" layoutY="81.0"
-                                                                       text="Име на материала"/>
-                                                                <Label layoutX="235.0" layoutY="143.0"
-                                                                       text="№ на протокол"/>
-                                                                <Label layoutX="175.0" layoutY="216.0"
-                                                                       text="Количество актуван материал"/>
-                                                                <Label layoutX="215.0" layoutY="283.0"
-                                                                       text="Обект на материала"/>
-                                                                <TextField fx:id="cMaterialName" layoutX="515.0" layoutY="75.0"/>
-                                                                <TextField fx:id="cNumberOfDocument" layoutX="515.0" layoutY="151.0"/>
-                                                                <TextField fx:id="cquantity" layoutX="515.0" layoutY="210.0"/>
-                                                                <TextField fx:id="project" layoutX="515.0" layoutY="277.0"/>
-                                                                <Button fx:id="saveCMaterial" layoutX="423.0" layoutY="461.0"
-                                                                        mnemonicParsing="false" text="Запиши"/>
-                                                            </children>
-                                                        </AnchorPane>
-                                                    </content>
-                                                </Tab>
-                                                <Tab text="Излизащи материали от склада">
-                                                    <content>
-                                                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                                            <children>
-                                                                <Label layoutX="252.0" layoutY="86.0"
-                                                                       text="Име на материал"/>
-                                                                <Label layoutX="213.0" layoutY="195.0"
-                                                                       text="№ на документ за приход"/>
-                                                                <Label layoutX="250.0" layoutY="296.0"
-                                                                       text="Остатък в склада"/>
-                                                                <TextField layoutX="515.0" layoutY="80.0"/>
-                                                                <TextField layoutX="515.0" layoutY="189.0"/>
-                                                                <TextField layoutX="515.0" layoutY="290.0"/>
-                                                                <Button layoutX="428.0" layoutY="456.0"
-                                                                        mnemonicParsing="false" text="Запиши"/>
+                                                                <TextField fx:id="mSupplier" layoutX="318.0"
+                                                                           layoutY="202.0"/>
+                                                                <TextField fx:id="mQuantity" layoutX="317.0"
+                                                                           layoutY="347.0"/>
+                                                                <TextField fx:id="mPrice" layoutX="317.0"
+                                                                           layoutY="416.0"/>
+                                                                <ComboBox fx:id="mMeasurement" layoutX="317.0"
+                                                                          layoutY="271.0" prefHeight="39.0"
+                                                                          prefWidth="225.0"/>
+                                                                <Button fx:id="saveMaterial" layoutX="386.0"
+                                                                        layoutY="488.0" mnemonicParsing="false"
+                                                                        text="Запиши"/>
+                                                                <TextField fx:id="mName" layoutX="318.0"
+                                                                           layoutY="44.0"/>
+                                                                <Label layoutX="127.0" layoutY="208.0"
+                                                                       text="Доставчик"/>
+                                                                <Label layoutX="125.0" layoutY="159.0"
+                                                                       text="Дата на фактурата"/>
+                                                                <DatePicker fx:id="mDate" layoutX="318.0"
+                                                                            layoutY="153.0" prefHeight="39.0"
+                                                                            prefWidth="223.0"/>
                                                             </children>
                                                         </AnchorPane>
                                                     </content>
@@ -91,92 +62,122 @@
                                 </AnchorPane>
                             </content>
                         </TitledPane>
-                        <TitledPane animated="false" prefHeight="684.0" prefWidth="768.0" text="Дрехи, ЛПС и Обувки">
+                        <TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                                    minWidth="-Infinity" prefHeight="660.0" prefWidth="1102.0" text="Коли">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="493.0" prefWidth="1043.0">
+                                    <children>
+                                        <TextField fx:id="carPrice" layoutX="215.0" layoutY="279.0"/>
+                                        <Label layoutX="45.0" layoutY="346.0" text="№ на фактура"/>
+                                        <TextField fx:id="carQuantity" layoutX="215.0" layoutY="216.0"/>
+                                        <TextField fx:id="carDocument" layoutX="215.0" layoutY="340.0"/>
+                                        <ComboBox fx:id="carMeasurement" layoutX="229.0" layoutY="147.0"
+                                                  prefWidth="150.0"/>
+                                        <Label layoutX="38.0" layoutY="285.0" text="Единична цена"/>
+                                        <Label layoutX="54.0" layoutY="222.0" text="Количество"/>
+                                        <Label layoutX="75.0" layoutY="153.0" text="Мярка"/>
+                                        <Button fx:id="saveCar" layoutX="465.0" layoutY="375.0" mnemonicParsing="false"
+                                                prefHeight="54.0" prefWidth="113.0" text="Запази"/>
+                                        <Label layoutX="73.0" layoutY="24.0" text="Модел"/>
+                                        <Label layoutX="49.0" layoutY="88.0" text="№ на колата"/>
+                                        <Label layoutX="653.0" layoutY="209.0" text="Прегледи"/>
+                                        <Label layoutX="642.0" layoutY="38.0" text="Застраховка"/>
+                                        <Label layoutX="608.0" layoutY="95.0" text="Дата на застраховка"/>
+                                        <Label layoutX="619.0" layoutY="271.0" text="Дата на прегледи"/>
+                                        <TextField fx:id="insurance" layoutX="787.0" layoutY="32.0"/>
+                                        <TextField fx:id="priceInsurance" layoutX="787.0" layoutY="147.0"/>
+                                        <TextField fx:id="inspecion" layoutX="787.0" layoutY="202.0"/>
+                                        <TextField fx:id="carModel" layoutX="215.0" layoutY="19.0"/>
+                                        <TextField fx:id="carNumber" layoutX="215.0" layoutY="82.0"/>
+                                        <TextField fx:id="inspectionPrice" layoutX="787.0" layoutY="320.0"/>
+                                        <Label layoutX="658.0" layoutY="394.0" text="Винетка"/>
+                                        <Label layoutX="617.0" layoutY="452.0" text="Дата на винетката"/>
+                                        <TextField fx:id="tollTicket" layoutX="787.0" layoutY="388.0"/>
+                                        <Label layoutX="572.0" layoutY="153.0" text="Разход по застраховката"/>
+                                        <Label layoutX="601.0" layoutY="332.0" text="Разход по прегледи"/>
+                                        <Label layoutX="599.0" layoutY="519.0" text="Разход по винетката"/>
+                                        <TextField fx:id="tollPrice" layoutX="787.0" layoutY="513.0"/>
+                                        <DatePicker fx:id="dateInsurance" layoutX="787.0" layoutY="89.0"
+                                                    prefHeight="39.0" prefWidth="222.0"/>
+                                        <DatePicker fx:id="tollDate" layoutX="787.0" layoutY="446.0" prefHeight="39.0"
+                                                    prefWidth="222.0"/>
+                                        <DatePicker fx:id="inspectionDate" layoutX="788.0" layoutY="266.0"
+                                                    prefHeight="39.0" prefWidth="222.0"/>
+                                        <DatePicker fx:id="carDate" layoutX="216.0" layoutY="402.0" prefHeight="39.0"
+                                                    prefWidth="223.0"/>
+                                        <Label layoutX="45.0" layoutY="408.0" text="Дата на фактурата"/>
+                                        <Label layoutX="49.0" layoutY="472.0" text="Доставчик"/>
+                                        <TextField fx:id="carSupplier" layoutX="216.0" layoutY="466.0"/>
+                                        <Button fx:id="uploadTalon" layoutX="216.0" layoutY="546.0"
+                                                mnemonicParsing="false" prefHeight="39.0" prefWidth="224.0"
+                                                text="Качи талон"/>
+                                        <Button fx:id="uploadDocument" layoutX="786.0" layoutY="566.0"
+                                                mnemonicParsing="false" prefHeight="39.0" prefWidth="224.0"
+                                                text="Качи фактура"/>
+                                        <Label layoutX="45.0" layoutY="552.0" text="Талон"/>
+                                        <Label layoutX="650.0" layoutY="572.0" text="Фактура"/>
+                                        <TextField fx:id="carModel1" layoutX="1158.0" layoutY="32.0"/>
+                                        <Label layoutX="1018.0" layoutY="38.0" prefHeight="27.0" prefWidth="140.0"
+                                               text="Разходна норма N"/>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </TitledPane>
+                        <TitledPane animated="false" prefHeight="822.0" prefWidth="1138.0" text="Машини">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="637.0" prefWidth="1025.0">
+                                    <children>
+                                        <TextField fx:id="machineDocument" layoutX="210.0" layoutY="63.0"/>
+                                        <Label layoutX="53.0" layoutY="69.0" text="№ на фактура"/>
+                                        <TextField fx:id="machinePrice" layoutX="209.0" layoutY="344.0"/>
+                                        <TextField fx:id="machineQuantity" layoutX="209.0" layoutY="293.0"/>
+                                        <ComboBox fx:id="machineMeasurement" layoutX="231.0" layoutY="229.0"
+                                                  prefWidth="150.0"/>
+                                        <Label layoutX="62.0" layoutY="350.0" text="Единична цена"/>
+                                        <Label layoutX="62.0" layoutY="299.0" text="Количество"/>
+                                        <Label layoutX="62.0" layoutY="235.0" text="Мярка"/>
+                                        <Button fx:id="saveMachine" layoutX="325.0" layoutY="434.0"
+                                                mnemonicParsing="false" prefHeight="54.0" prefWidth="113.0"
+                                                text="Запази"/>
+                                        <Label layoutX="58.0" layoutY="23.0" text="Вид"/>
+                                        <TextField fx:id="machineName" layoutX="209.0" layoutY="17.0"/>
+                                        <DatePicker fx:id="machineDate" layoutX="211.0" layoutY="165.0"
+                                                    prefHeight="39.0" prefWidth="223.0"/>
+                                        <Label layoutX="49.0" layoutY="171.0" text="Дата на фактурата"/>
+                                        <Label layoutX="53.0" layoutY="120.0" text="Доставчик"/>
+                                        <TextField fx:id="machineSupplier" layoutX="209.0" layoutY="114.0"/>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </TitledPane>
+                        <TitledPane animated="false" prefHeight="537.0" prefWidth="1045.0" text="Дрехи, ЛПС и Обувки">
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                     <children>
                                         <Label layoutX="42.0" layoutY="14.0" text="Вид(ЛПС/Обувки/Дрехи)"/>
                                         <Label layoutX="42.0" layoutY="66.0" text="Модел"/>
-                                        <Label layoutX="42.0" layoutY="121.0" text="Раздадено"/>
-                                        <Label layoutX="42.0" layoutY="169.0" text="Използвано"/>
                                         <Label layoutX="42.0" layoutY="228.0" text="Мярка"/>
                                         <Label layoutX="42.0" layoutY="281.0" text="Количество"/>
                                         <Label layoutX="42.0" layoutY="336.0" text="Единична цена"/>
-                                        <Label layoutX="42.0" layoutY="397.0" text="Общо купено"/>
-                                        <CheckBox layoutX="192.0" layoutY="121.0" mnemonicParsing="false"/>
-                                        <CheckBox layoutX="192.0" layoutY="169.0" mnemonicParsing="false"/>
-                                        <ComboBox layoutX="263.0" layoutY="8.0" prefWidth="150.0"/>
-                                        <ComboBox layoutX="172.0" layoutY="60.0" prefWidth="150.0"/>
-                                        <ComboBox layoutX="172.0" layoutY="222.0" prefWidth="150.0"/>
-                                        <TextField layoutX="210.0" layoutY="275.0"/>
-                                        <TextField layoutX="210.0" layoutY="330.0"/>
-                                        <TextField layoutX="210.0" layoutY="391.0"/>
-                                        <Button layoutX="849.0" layoutY="470.0" mnemonicParsing="false"
-                                                prefHeight="54.0" prefWidth="113.0" text="Запази"/>
-                                        <Label layoutX="42.0" layoutY="450.0" text="№ на фактура"/>
-                                        <TextField layoutX="210.0" layoutY="444.0"/>
-                                        <Label layoutX="720.0" layoutY="34.0" text="Номер"/>
-                                        <TextField layoutX="834.0" layoutY="28.0" prefHeight="39.0" prefWidth="144.0"/>
-                                    </children>
-                                </AnchorPane>
-                            </content>
-                        </TitledPane>
-                        <TitledPane animated="false" text="Коли">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                    <children>
-                                        <TextField layoutX="215.0" layoutY="339.0"/>
-                                        <Label layoutX="42.0" layoutY="458.0" text="№ на фактура"/>
-                                        <TextField layoutX="215.0" layoutY="284.0"/>
-                                        <TextField layoutX="215.0" layoutY="452.0"/>
-                                        <TextField layoutX="215.0" layoutY="395.0"/>
-                                        <ComboBox layoutX="233.0" layoutY="229.0" prefWidth="150.0"/>
-                                        <Label layoutX="44.0" layoutY="401.0" text="Общо купено"/>
-                                        <Label layoutX="38.0" layoutY="345.0" text="Единична цена"/>
-                                        <Label layoutX="52.0" layoutY="290.0" text="Количество"/>
-                                        <Label layoutX="74.0" layoutY="235.0" text="Мярка"/>
-                                        <Button layoutX="872.0" layoutY="464.0" mnemonicParsing="false"
-                                                prefHeight="54.0" prefWidth="113.0" text="Запази"/>
-                                        <Label layoutX="73.0" layoutY="24.0" text="Модел"/>
-                                        <Label layoutX="49.0" layoutY="88.0" text="№ на колата"/>
-                                        <Label layoutX="608.0" layoutY="153.0" text="Прегледи"/>
-                                        <Label layoutX="66.0" layoutY="166.0" text="Ремонти"/>
-                                        <Label layoutX="608.0" layoutY="38.0" text="Застраховка"/>
-                                        <Label layoutX="608.0" layoutY="95.0" text="Дата на застраховка"/>
-                                        <Label layoutX="604.0" layoutY="208.0" text="Дата на прегледи"/>
-                                        <TextField layoutX="749.0" layoutY="32.0"/>
-                                        <TextField layoutX="787.0" layoutY="89.0"/>
-                                        <TextField layoutX="749.0" layoutY="147.0"/>
-                                        <TextField layoutX="787.0" layoutY="202.0"/>
-                                        <TextField layoutX="215.0" layoutY="19.0"/>
-                                        <TextField layoutX="215.0" layoutY="82.0"/>
-                                        <TextField layoutX="215.0" layoutY="160.0"/>
-                                    </children>
-                                </AnchorPane>
-                            </content>
-                        </TitledPane>
-                        <TitledPane animated="false" prefHeight="606.0" prefWidth="1027.0" text="Машини">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="637.0" prefWidth="1025.0">
-                                    <children>
-                                        <TextField layoutX="209.0" layoutY="439.0"/>
-                                        <Label layoutX="58.0" layoutY="445.0" text="№ на фактура"/>
-                                        <TextField layoutX="209.0" layoutY="394.0"/>
-                                        <TextField layoutX="209.0" layoutY="344.0"/>
-                                        <TextField layoutX="209.0" layoutY="293.0"/>
-                                        <ComboBox layoutX="231.0" layoutY="229.0" prefWidth="150.0"/>
-                                        <Label layoutX="60.0" layoutY="394.0" text="Общо купено"/>
-                                        <Label layoutX="62.0" layoutY="350.0" text="Единична цена"/>
-                                        <Label layoutX="62.0" layoutY="299.0" text="Количество"/>
-                                        <Label layoutX="62.0" layoutY="248.0" text="Мярка"/>
-                                        <Button layoutX="614.0" layoutY="432.0" mnemonicParsing="false"
-                                                prefHeight="54.0" prefWidth="113.0" text="Запази"/>
-                                        <Label layoutX="58.0" layoutY="56.0" text="Вид"/>
-                                        <Label layoutX="60.0" layoutY="106.0" text="Ремонти"/>
-                                        <Label layoutX="62.0" layoutY="157.0" text="Бракувана"/>
-                                        <TextField layoutX="194.0" layoutY="50.0"/>
-                                        <TextField layoutX="194.0" layoutY="100.0"/>
-                                        <TextField layoutX="194.0" layoutY="151.0"/>
+                                        <ComboBox fx:id="type" layoutX="263.0" layoutY="8.0" prefWidth="150.0"/>
+                                        <TextField fx:id="model" layoutX="263.0" layoutY="60.0" prefWidth="150.0"/>
+                                        <ComboBox fx:id="clothesMeasurement" layoutX="263.0" layoutY="222.0"
+                                                  prefWidth="150.0"/>
+                                        <TextField fx:id="clothesQuantity" layoutX="210.0" layoutY="275.0"/>
+                                        <TextField fx:id="clothesPrice" layoutX="210.0" layoutY="330.0"/>
+                                        <Button fx:id="saveClothes" layoutX="456.0" layoutY="490.0"
+                                                mnemonicParsing="false" prefHeight="54.0" prefWidth="113.0"
+                                                text="Запази"/>
+                                        <Label layoutX="47.0" layoutY="401.0" text="№ на фактура"/>
+                                        <TextField fx:id="clothesDocument" layoutX="210.0" layoutY="395.0"/>
+                                        <Label layoutX="42.0" layoutY="148.0" text="Номер"/>
+                                        <TextField fx:id="clothesNumber" layoutX="210.0" layoutY="142.0"
+                                                   prefHeight="39.0" prefWidth="225.0"/>
+                                        <DatePicker fx:id="clothesDate" layoutX="211.0" layoutY="505.0"
+                                                    prefHeight="39.0" prefWidth="223.0"/>
+                                        <Label layoutX="42.0" layoutY="511.0" text="Дата на фактурата"/>
+                                        <Label layoutX="47.0" layoutY="457.0" text="Доставчик"/>
+                                        <TextField fx:id="clohesSupplier" layoutX="210.0" layoutY="451.0"/>
                                     </children>
                                 </AnchorPane>
                             </content>

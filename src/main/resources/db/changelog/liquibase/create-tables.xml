@@ -2,34 +2,25 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
     <changeSet id="1-20181125" author="RK">
+        <!-- TODO remake types in clothes table !-->
         <createTable tableName="good">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" unique="true" nullable="false"/>
             </column>
             <column name="name" type="varchar"/>
             <column name="measurement" type="varchar"/>
-            <column name="quantity" type="bigint"/>
-            <column name="price" type="bigint"/>
-            <column name="total_value" type="bigint"/>
+            <column name="quantity" type="double precision"/>
+            <column name="price" type="double precision"/>
+            <column name="total_value" type="double precision"/>
             <column name="number_of_invoice" type="bigint"/>
-            <column name="type" type="varchar" />
+            <column name="date" type="DATE"/>
+            <column name="supplier" type="varchar"/>
         </createTable>
-        <createTable tableName="current_material">
+        <createTable tableName="material">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" unique="true" nullable="false"/>
             </column>
             <column name="project" type="bigint"/>
-        </createTable>
-        <createTable tableName="remaining_material">
-            <column name="id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true" unique="true" nullable="false"/>
-            </column>
-            <column name="good_id" type="bigint"/>
-        </createTable>
-        <createTable tableName="new_material">
-            <column name="id" type = "bigint" autoIncrement="true">
-                <constraints primaryKey="true" unique="true" nullable="false"/>
-            </column>
         </createTable>
         <createTable tableName="machine">
             <column name="id" type = "bigint" autoIncrement="true">
@@ -75,7 +66,7 @@
         </createTable>
     </changeSet>
     <changeSet id="1-20190106" author="RK">
-        <addForeignKeyConstraint baseTableName="current_material"
+        <addForeignKeyConstraint baseTableName="material"
                                  baseColumnNames="project"
                                  constraintName="project_material"
                                  referencedTableName="project"

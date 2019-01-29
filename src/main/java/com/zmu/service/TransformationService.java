@@ -1,15 +1,16 @@
 package com.zmu.service;
 
-import com.zmu.dto.GoodDto;
-import com.zmu.dto.MaterialDto;
-import com.zmu.dto.NewMaterialDto;
-import com.zmu.model.CurrentMaterial;
-import com.zmu.model.Good;
-import com.zmu.model.NewMaterial;
+import com.zmu.dto.*;
+import com.zmu.model.*;
 
-public interface TransformationService<T extends Good,TDto extends GoodDto> {
-    NewMaterial DtoToEntity(NewMaterialDto dto);
-    CurrentMaterial DtoToEntity(MaterialDto dto);
+public interface TransformationService {
+    Material DtoToEntity(MaterialDto dto);
 
+    Car DtoToEntity(CarDto carDto);
 
+    Clothes DtoToEntity(ClothesDto clothesDto);
+
+    Machine DtoToEntity(MachineDto machineDto);
+
+    Project DtoToEntity(ProjectDto project);
 }

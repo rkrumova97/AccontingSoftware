@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="776.0" prefWidth="1043.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.zmu.fx_controller.ViewerController">
+    <children>
+        <Label layoutX="353.0" layoutY="14.0" text="Общ раздел">
+            <font>
+                <Font name="Comic Sans MS" size="38.0"/>
+            </font>
+        </Label>
+        <Label layoutX="195.0" layoutY="100.0" text="Избери желаната категория:"/>
+        <ComboBox fx:id="category" layoutX="487.0" layoutY="94.0" prefHeight="39.0" prefWidth="257.0"/>
+        <TableView fx:id="table" layoutX="47.0" layoutY="152.0" prefHeight="489.0" prefWidth="888.0">
+            <columns>
+                <TableColumn prefWidth="75.0" text="C1"/>
+                <TableColumn prefWidth="75.0" text="C2"/>
+            </columns>
+        </TableView>
+        <Button fx:id="back" layoutX="14.0" layoutY="723.0" mnemonicParsing="false" text="Назад"/>
+        <Button fx:id="show" layoutX="773.0" layoutY="94.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="164.0"
+                text="Покажи графика"/>
+    </children>
+</AnchorPane>
