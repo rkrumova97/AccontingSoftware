@@ -1,6 +1,7 @@
 package com.zmu.service.impl;
 
 import com.zmu.dto.MaterialDto;
+import com.zmu.model.Clothes;
 import com.zmu.model.Material;
 import com.zmu.repository.MaterialRepository;
 import com.zmu.service.MaterialService;
@@ -31,5 +32,10 @@ public class MaterialServiceImpl implements MaterialService {
 //            material.setQuantity(Double.parseDouble(materialDto.getQuantity()));
 //            materialRepository.save(material);
 //        }
+    }
+
+    @Override
+    public List<Material> findAll(){
+        return materialRepository.findAll();
     }
 }

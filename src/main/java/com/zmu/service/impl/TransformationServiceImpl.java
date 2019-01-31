@@ -21,7 +21,7 @@ public class TransformationServiceImpl implements TransformationService {
                 .numberOfInvoice(Integer.parseInt(dto.getNumberOfInvoice()))
                 .price(Double.parseDouble(dto.getPrice()))
                 .quantity(Double.parseDouble(dto.getQuantity()))
-                .project(projectService.findByName(dto.getProject()))
+//                .project(projectService.findByName(dto.getProject()))
                 .supplier(dto.getSupplier())
                 .localDate(dto.getDate())
                 .build();
@@ -34,6 +34,7 @@ public class TransformationServiceImpl implements TransformationService {
         Car car = Car.builder()
                 .measurement(dto.getMeasurement())
                 .name(dto.getName())
+                .number(Integer.parseInt(dto.getNumber()))
                 .numberOfInvoice(Integer.parseInt(dto.getNumberOfInvoice()))
                 .price(Double.parseDouble(dto.getPrice()))
                 .quantity(Double.parseDouble(dto.getQuantity()))
@@ -44,7 +45,7 @@ public class TransformationServiceImpl implements TransformationService {
                 .inspection(dto.getInspection())
                 .insurance(dto.getInsurance())
                 .inspectionPrice(Double.parseDouble(dto.getInspectionPrice()))
-                .insurancePrice(Double.parseDouble(dto.getInsurance()))
+                .insurancePrice(Double.parseDouble(dto.getInsurancePrice()))
                 .razhNorma(Integer.parseInt(dto.getRazhNorma()))
 //      todo          .invoiceFile(dto.getInvoiceFile())
 //                .talon(dto.getTalon())
@@ -53,7 +54,7 @@ public class TransformationServiceImpl implements TransformationService {
                 .endDateToll(dto.getEndDateToll())
                 .build();
         getPrice(car);
-        return null;
+        return car;
     }
 
     @Override
@@ -91,7 +92,11 @@ public class TransformationServiceImpl implements TransformationService {
 
     @Override
     public Project DtoToEntity(ProjectDto project) {
-        return null;
+        return Project.builder()
+                .name(project.getName())
+                .city(project.getCity())
+                .company(project.getCompany())
+                .build();
     }
 
     private <T extends Good> void getPrice(T good) {

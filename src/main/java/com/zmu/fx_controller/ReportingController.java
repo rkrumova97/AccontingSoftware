@@ -4,6 +4,7 @@ import com.zmu.dto.CarDto;
 import com.zmu.dto.ClothesDto;
 import com.zmu.dto.MachineDto;
 import com.zmu.dto.MaterialDto;
+import com.zmu.fx_controller.util.UtilService;
 import com.zmu.model.*;
 import com.zmu.service.CarService;
 import com.zmu.service.ClothesService;
@@ -72,6 +73,10 @@ public class ReportingController {
     public Button uploadDocument;
     public TextField carModel1;
 
+    //Tool bar
+    public Button back;
+    public Button saveProject;
+
 
     @Autowired
     private MaterialService materialService;
@@ -81,8 +86,12 @@ public class ReportingController {
 
     @Autowired
     private MachineService machineService;
+
     @Autowired
     private CarService carService;
+
+    @Autowired
+    private UtilService utilService;
 
     @FXML
     public void initialize() {
@@ -111,11 +120,13 @@ public class ReportingController {
             message(machine);
         });
 
-        saveMachine.setOnAction(e->{
+        saveCar.setOnAction(e->{
             CarDto carDto = buildCarDto();
             Car car = carService.save(carDto);
             message(car);
         });
+
+       utilService.changeScene(saveProject, "/templates/new_project.fxml");
     }
 
     private CarDto buildCarDto() {

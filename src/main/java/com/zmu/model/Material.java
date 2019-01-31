@@ -8,6 +8,7 @@ import java.time.LocalDate;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
+@NoArgsConstructor
 @Table(name = "material")
 public class Material extends Good{
     @OneToOne

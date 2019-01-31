@@ -5,8 +5,10 @@ import lombok.*;
 import javax.persistence.*;
 
 @Data
-@Builder
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "project")
 public class Project {
     @Id
@@ -16,4 +18,16 @@ public class Project {
 
     @Column
     private String name;
+
+    @Column
+    private String company;
+
+    @Column
+    private String city;
+
+    @Column
+    private Double outcomes;
+
+    @Column
+    private Double incomes;
 }

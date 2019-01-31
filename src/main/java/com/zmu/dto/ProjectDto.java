@@ -6,5 +6,7 @@ import lombok.Data;
 @Builder
 @Data
 public class ProjectDto {
-
+    public String name;
+    public String company;
+    public String city;
 }

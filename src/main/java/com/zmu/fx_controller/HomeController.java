@@ -1,5 +1,6 @@
 package com.zmu.fx_controller;
 
+import com.zmu.fx_controller.util.UtilService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -16,29 +17,14 @@ import java.util.Objects;
 
 @Controller
 public class HomeController {
+    @Autowired
+    private UtilService utilService;
+    
     @FXML
     private Button accounting;
 
-    @Autowired
-    private ApplicationContext context;
-
     @FXML
     public void initialize() {
-        accounting.setOnAction(e -> {
-            Node node = (Node) e.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            Parent root = null;
-            try {
-                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/templates/accounting.fxml"));
-                loader.setControllerFactory(context::getBean);
-                root = loader.load();
-
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-            Scene scene = new Scene(Objects.requireNonNull(root));
-            stage.setScene(scene);
-            stage.show();
-        });
+        utilService.changeScene(accounting,"/templates/accounting.fxml");
     }
 }

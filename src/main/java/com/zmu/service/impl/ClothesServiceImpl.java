@@ -11,6 +11,8 @@ import com.zmu.service.TransformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ClothesServiceImpl implements ClothesService {
     @Autowired
@@ -28,4 +30,10 @@ public class ClothesServiceImpl implements ClothesService {
     public void delete(ClothesDto clothesDto){
         clothesRepository.delete(transformationService.DtoToEntity(clothesDto));
     }
+
+    @Override
+    public List<Clothes> findAll(){
+        return clothesRepository.findAll();
+    }
+
 }

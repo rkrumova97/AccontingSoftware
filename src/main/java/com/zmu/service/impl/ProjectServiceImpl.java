@@ -8,6 +8,8 @@ import com.zmu.service.TransformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProjectServiceImpl implements ProjectService {
     @Autowired
@@ -22,9 +24,12 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Project findByName(String name) {
+    public List<Project> findByName(String name) {
         return projectRepository.findByName(name);
     }
 
-
+    @Override
+    public List<Project> findAll(){
+        return projectRepository.findAll();
+    }
 }

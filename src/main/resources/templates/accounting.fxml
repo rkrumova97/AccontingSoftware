@@ -21,7 +21,7 @@
                     <Button fx:id="reporting" mnemonicParsing="false" text="Отчетен раздел"/>
                     <Button fx:id="statistics" mnemonicParsing="false" text="Статистика"/>
                     <Button fx:id="projects" mnemonicParsing="false" text="Обекти"/>
-                    <Button fx:id="searching" mnemonicParsing="false" text="Търсене"/>
+                    <Button fx:id="viewer" mnemonicParsing="false" text="Търсене"/>
                 </ToolBar>
                 <Button fx:id="home" layoutX="16.0" layoutY="14.0" mnemonicParsing="false" prefHeight="59.0"
                         prefWidth="66.0">

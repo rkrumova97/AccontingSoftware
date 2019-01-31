@@ -1,5 +1,6 @@
 package com.zmu.fx_controller;
 
+import com.zmu.fx_controller.util.UtilService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -9,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
@@ -19,7 +19,7 @@ import java.util.Objects;
 @Data
 public class AccountingController {
     @Autowired
-    private ApplicationContext context;
+    private UtilService utilService;
 
     @FXML
     private Button home;
@@ -28,7 +28,7 @@ public class AccountingController {
     private Button reporting;
 
     @FXML
-    private Button searching;
+    private Button viewer;
 
     @FXML
     private Button projects;
@@ -38,86 +38,14 @@ public class AccountingController {
 
     @FXML
     public void initialize() {
-        reporting.setOnAction(e -> {
-            Node node = (Node) e.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            Parent root = null;
-            try {
-                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/templates/reporting_page.fxml"));
-                loader.setControllerFactory(context::getBean);
-                root = loader.load();
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-            Scene scene = new Scene(Objects.requireNonNull(root));
-            stage.setScene(scene);
-            stage.setX(0);
-            stage.setY(0);
-            stage.show();
-        });
+        utilService.changeScene(reporting,"/templates/reporting_page.fxml");
 
-        searching.setOnAction(e -> {
-            Node node = (Node) e.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            Parent root = null;
-            try {
-                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/templates/viewer.fxml"));
-                loader.setControllerFactory(context::getBean);
-                root = loader.load();
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-            Scene scene = new Scene(Objects.requireNonNull(root));
-            stage.setScene(scene);
-            stage.show();
-        });
+        utilService.changeScene(viewer, "/templates/viewer.fxml");
 
-        projects.setOnAction(e -> {
-            Node node = (Node) e.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            Parent root = null;
-            try {
-                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/templates/projects.fxml"));
-                loader.setControllerFactory(context::getBean);
-                root = loader.load();
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-            Scene scene = new Scene(Objects.requireNonNull(root));
-            stage.setScene(scene);
-            stage.show();
-        });
+        utilService.changeScene(projects,"/templates/projects.fxml");
 
-        statistics.setOnAction(e -> {
-            Node node = (Node) e.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            Parent root = null;
-            try {
-                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/templates/month_report.fxml"));
-                loader.setControllerFactory(context::getBean);
-                root = loader.load();
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-            Scene scene = new Scene(Objects.requireNonNull(root));
-            stage.setScene(scene);
-            stage.show();
-        });
+        utilService.changeScene(statistics,"/templates/month_report.fxml");
 
-        home.setOnAction(e -> {
-            Node node = (Node) e.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            Parent root = null;
-            try {
-                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/templates/start.fxml"));
-                loader.setControllerFactory(context::getBean);
-                root = loader.load();
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-            Scene scene = new Scene(Objects.requireNonNull(root));
-            stage.setScene(scene);
-            stage.show();
-        });
+        utilService.changeScene(home,"/templates/start.fxml");
     }
 }
