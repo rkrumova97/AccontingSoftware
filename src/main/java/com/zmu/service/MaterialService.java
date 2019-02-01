@@ -8,8 +8,9 @@ import java.util.List;
 public interface MaterialService {
     Material saveMaterial(MaterialDto newMaterialDto);
 
-    //TODO: Set project
-    void updateCurrent(MaterialDto materialDto);
+    Material save(Material materialDto);
+
+    Material findOne(String s, Integer i);
 
     List<Material> findAll();
 }

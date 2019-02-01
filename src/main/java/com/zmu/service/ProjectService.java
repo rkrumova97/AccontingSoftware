@@ -10,5 +10,8 @@ public interface ProjectService {
 
     List<Project> findByName(String name);
 
+    Project findOneByName(String name);
+
+
     List<Project> findAll();
 }

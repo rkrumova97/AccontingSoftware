@@ -5,5 +5,6 @@ import javafx.scene.control.Button;
 public interface UtilService {
     void changeScene(Button button, String fxml);
 
+    <T> void message(T good);
 }
 

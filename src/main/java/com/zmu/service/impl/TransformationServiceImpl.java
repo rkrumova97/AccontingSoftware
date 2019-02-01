@@ -4,6 +4,7 @@ import com.zmu.dto.*;
 import com.zmu.model.*;
 import com.zmu.service.ProjectService;
 import com.zmu.service.TransformationService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +22,6 @@ public class TransformationServiceImpl implements TransformationService {
                 .numberOfInvoice(Integer.parseInt(dto.getNumberOfInvoice()))
                 .price(Double.parseDouble(dto.getPrice()))
                 .quantity(Double.parseDouble(dto.getQuantity()))
-//                .project(projectService.findByName(dto.getProject()))
                 .supplier(dto.getSupplier())
                 .localDate(dto.getDate())
                 .build();
@@ -47,8 +47,7 @@ public class TransformationServiceImpl implements TransformationService {
                 .inspectionPrice(Double.parseDouble(dto.getInspectionPrice()))
                 .insurancePrice(Double.parseDouble(dto.getInsurancePrice()))
                 .razhNorma(Integer.parseInt(dto.getRazhNorma()))
-//      todo          .invoiceFile(dto.getInvoiceFile())
-//                .talon(dto.getTalon())
+//
                 .toll(dto.getToll())
                 .tollPrice(Double.parseDouble(dto.getTollPrice()))
                 .endDateToll(dto.getEndDateToll())
@@ -69,7 +68,7 @@ public class TransformationServiceImpl implements TransformationService {
                 .localDate(dto.getDate())
                 .given(dto.getGiven())
                 .number(Integer.parseInt(dto.getNumber()))
-//          todo      .type(Type.getReturnType(dto.getType()))
+                .type(Type.valueOf(dto.getType()))
                 .build();
         getPrice(clothes);
         return clothes;

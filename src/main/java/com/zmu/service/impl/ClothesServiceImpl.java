@@ -27,6 +27,12 @@ public class ClothesServiceImpl implements ClothesService {
     }
 
     @Override
+    public Clothes save(Clothes clothesDto){
+        return clothesRepository.save(clothesDto);
+    }
+
+
+    @Override
     public void delete(ClothesDto clothesDto){
         clothesRepository.delete(transformationService.DtoToEntity(clothesDto));
     }
@@ -34,6 +40,11 @@ public class ClothesServiceImpl implements ClothesService {
     @Override
     public List<Clothes> findAll(){
         return clothesRepository.findAll();
+    }
+
+    @Override
+    public Clothes findOne(String name, Integer invoice) {
+        return clothesRepository.findByNameAndNumberOfInvoice(name, invoice);
     }
 
 }

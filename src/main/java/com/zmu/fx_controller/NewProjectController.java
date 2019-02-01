@@ -2,6 +2,7 @@ package com.zmu.fx_controller;
 
 import com.zmu.dto.ProjectDto;
 import com.zmu.fx_controller.util.UtilService;
+import com.zmu.model.Project;
 import com.zmu.service.ProjectService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -27,18 +28,22 @@ public class NewProjectController {
 
     @FXML
     public void initialize() {
-        save.setOnAction(e -> projectService.save(getDto()));
+        save.setOnAction(e -> {
+            Project save = projectService.save(getDto());
+            utilService.message(save);
+        });
 
-        utilService.changeScene(reporting,"/templates/reporting_page.fxml");
-        utilService.changeScene(projects, "/templates/projects.fxml");
-        utilService.changeScene(accounting, "/templates/accounting.fxml");
+        utilService.changeScene(reporting, "/views/reporting_page.fxml");
+        utilService.changeScene(projects, "/views/projects.fxml");
+        utilService.changeScene(accounting, "/views/accounting.fxml");
     }
 
-    public ProjectDto getDto(){
+    public ProjectDto getDto() {
         return ProjectDto.builder()
                 .name(name.getText())
                 .city(city.getText())
                 .company(company.getText())
                 .build();
     }
+
 }

@@ -1,6 +1,5 @@
 package com.zmu;
 
-import com.zmu.fxml.SpringFxmlLoader;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +9,6 @@ import javafx.stage.Stage;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 public class ZmuApplication extends Application {
@@ -28,7 +26,7 @@ public class ZmuApplication extends Application {
         context = builder.run(getParameters().getRaw().toArray(new String[0]));
 
         Platform.setImplicitExit(false);
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/templates/start.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/views/start.fxml"));
         loader.setControllerFactory(context::getBean);
         rootNode = loader.load();
 

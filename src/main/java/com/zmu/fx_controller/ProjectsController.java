@@ -35,19 +35,32 @@ public class ProjectsController {
 
         TableColumn<Project, String> id = new TableColumn<>("ID");
         TableColumn<Project, String> name = new TableColumn<>("Име");
-        TableColumn<Project, String> minAge = new TableColumn<>("Фактура");
+        TableColumn<Project, String> company = new TableColumn<>("Kомпания");
+        TableColumn<Project, String> city = new TableColumn<>("Град");
+        TableColumn<Project, String> outcomes = new TableColumn<>("Разходи");
+        TableColumn<Project, String> incomes = new TableColumn<>("Приходи");
+
 
         project.setItems(observableList);
 
-        table.getColumns().addAll(id, name, minAge);
+        table.getColumns().addAll(id, name, company, city, outcomes, incomes);
 
         project.setOnAction(e ->{
             id.setCellValueFactory(
                     new PropertyValueFactory<>("id"));
             name.setCellValueFactory(
                     new PropertyValueFactory<>("name"));
-            minAge.setCellValueFactory(
-                    new PropertyValueFactory<>("numberOfInvoice")
+            company.setCellValueFactory(
+                    new PropertyValueFactory<>("company")
+            );
+            city.setCellValueFactory(
+                    new PropertyValueFactory<>("city")
+            );
+            outcomes.setCellValueFactory(
+                    new PropertyValueFactory<>("outcomes")
+            );
+            incomes.setCellValueFactory(
+                    new PropertyValueFactory<>("incomes")
             );
 
             List list = projectService.findByName(project.getValue());
@@ -56,8 +69,8 @@ public class ProjectsController {
         });
 
 
-        utilService.changeScene(back, "/templates/accounting.fxml");
-        utilService.changeScene(addNewProject, "/templates/new_project.fxml");
+        utilService.changeScene(back, "/views/accounting.fxml");
+        utilService.changeScene(addNewProject, "/views/new_project.fxml");
     }
 
 }

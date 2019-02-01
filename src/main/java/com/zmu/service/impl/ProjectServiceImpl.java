@@ -25,6 +25,11 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public List<Project> findByName(String name) {
+        return projectRepository.findAllByName(name);
+    }
+
+    @Override
+    public Project findOneByName(String name) {
         return projectRepository.findByName(name);
     }
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="707.0" text="ZMU Enterprise Software" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zmu.fx_controller.AccountingController">
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="301.0" prefWidth="666.0">
+            <children>
+                <TextArea editable="false" layoutX="145.0" layoutY="68.0" prefHeight="144.0" prefWidth="470.0" text="Добре дошъл в счетоводния раздел&#10;                 на програмата!&#10;        Избери следваща стъпка:">
+                    <font>
+                        <Font name="Comic Sans MS" size="24.0" />
+                    </font>
+                </TextArea>
+                <ToolBar layoutX="109.0" layoutY="234.0" prefHeight="55.0" prefWidth="543.0">
+                   <items>
+                       <Button fx:id="reporting" mnemonicParsing="false" prefHeight="39.0" prefWidth="149.0" text="Нови данни" />
+                       <Button fx:id="statistics" mnemonicParsing="false" text="Месечен отчет" />
+                       <Button fx:id="projects" mnemonicParsing="false" text="Обекти" />
+                       <Button fx:id="viewer" mnemonicParsing="false" text="Общ раздел" />
+                   </items>
+                </ToolBar>
+                <Button fx:id="home" layoutX="16.0" layoutY="14.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="66.0">
+                    <graphic>
+                        <ImageView fitHeight="96.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                               <Image url="/images/home.png" />
+                           </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </AnchorPane>
+    </content>
+</TitledPane>

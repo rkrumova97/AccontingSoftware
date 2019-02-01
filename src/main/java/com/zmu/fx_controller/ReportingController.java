@@ -13,10 +13,26 @@ import com.zmu.service.MaterialService;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 @Controller
+@Slf4j
 public class ReportingController {
     //Material tab
     public TextField mDocument;
@@ -29,7 +45,7 @@ public class ReportingController {
     public DatePicker mDate;
 
     // Clothes tab
-    public ComboBox<Type> type;
+    public ComboBox<String> type;
     public TextField model;
     public ComboBox<String> clothesMeasurement;
     public TextField clothesQuantity;
@@ -93,6 +109,7 @@ public class ReportingController {
     @Autowired
     private UtilService utilService;
 
+
     @FXML
     public void initialize() {
         //fill combobox
@@ -100,38 +117,51 @@ public class ReportingController {
         fillCombobox(machineMeasurement);
         fillCombobox(clothesMeasurement);
         fillCombobox(carMeasurement);
-        type.setItems(FXCollections.observableArrayList(Type.values()));
+
+        FileChooser fileChooser = new FileChooser();
+        Stage stage = new Stage();
+        final File[] invoice = new File[2];
+
+        type.setItems(FXCollections.observableArrayList(Arrays.stream(Type.values()).map(Type::getName).collect(Collectors.toList())));
 
         saveMaterial.setOnAction(e -> {
             MaterialDto materialDto = buildMDto();
             Material material = materialService.saveMaterial(materialDto);
-            message(material);
+            utilService.message(material);
         });
 
         saveClothes.setOnAction(e -> {
             ClothesDto clothesDto = buildCDto();
             Clothes clothes = clothesService.save(clothesDto);
-            message(clothes);
+            utilService.message(clothes);
         });
 
-        saveMachine.setOnAction(e->{
+        saveMachine.setOnAction(e -> {
             MachineDto machineDto = buildMachineDto();
             Machine machine = machineService.save(machineDto);
-            message(machine);
+            utilService.message(machine);
         });
 
-        saveCar.setOnAction(e->{
-            CarDto carDto = buildCarDto();
-            Car car = carService.save(carDto);
-            message(car);
+        saveCar.setOnAction(e -> {
+            try {
+                CarDto carDto = buildCarDto();
+                Car car = carService.save(carDto);
+                utilService.message(car);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         });
+        uploadDocument.setOnAction(e -> invoice[0] = fileChooser.showOpenDialog(stage));
+        uploadTalon.setOnAction(e -> invoice[1] = fileChooser.showOpenDialog(stage));
 
-       utilService.changeScene(saveProject, "/templates/new_project.fxml");
+        utilService.changeScene(saveProject, "/views/new_project.fxml");
+        utilService.changeScene(back, "/views/accounting.fxml");
     }
 
     private CarDto buildCarDto() {
         return CarDto.builder()
                 .name(carModel.getText())
+                .number(carNumber.getText())
                 .numberOfInvoice(carDocument.getText())
                 .quantity(carQuantity.getText())
                 .measurement(carMeasurement.getValue())
@@ -145,28 +175,10 @@ public class ReportingController {
                 .inspectionPrice(inspectionPrice.getText())
                 .insurancePrice(priceInsurance.getText())
                 .razhNorma(carModel1.getText())
-//   todo             .invoiceFile(dto.getInvoiceFile())
-//                .talon(dto.getTalon())
                 .toll(tollTicket.getText())
                 .tollPrice(tollPrice.getText())
                 .endDateToll(tollDate.getValue())
                 .build();
-    }
-
-    private <T extends Good> void message(T material) {
-        if (material != null) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Successful Dialog");
-            alert.setHeaderText("SAVED");
-            alert.setContentText("ВАШИТЕ ДАННИ СЕ ЗАПИСАХА УСПЕШНО!");
-            alert.showAndWait();
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error dialog");
-            alert.setHeaderText("FAILED");
-            alert.setContentText("ВАШИТЕ ДАННИ НЕ СА ЗАПИСАНИ!");
-            alert.showAndWait();
-        }
     }
 
     private MaterialDto buildMDto() {
@@ -191,10 +203,11 @@ public class ReportingController {
                 .localDate(clothesDate.getValue())
                 .supplier(clohesSupplier.getText())
                 .number(clothesNumber.getText())
+                .type(type.getValue())
                 .build();
     }
 
-    private MachineDto buildMachineDto(){
+    private MachineDto buildMachineDto() {
         return MachineDto.builder()
                 .name(machineName.getText())
                 .numberOfInvoice(machineDocument.getText())
@@ -212,4 +225,6 @@ public class ReportingController {
                 "Брой"
         );
     }
+
+
 }

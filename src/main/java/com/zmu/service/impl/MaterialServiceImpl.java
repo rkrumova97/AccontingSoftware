@@ -22,17 +22,15 @@ public class MaterialServiceImpl implements MaterialService {
     public Material saveMaterial(MaterialDto materialDto) {
         return materialRepository.save(transformationService.DtoToEntity(materialDto));
     }
-
-    //TODO: Set project
     @Override
-    public void updateCurrent(MaterialDto materialDto){
-//        List<Material> materials = materialRepository.findByName(materialDto.getName());
-//        for(Material material : materials){
-//            material.setNumberOfInvoice(materialDto.getNumberOfInvoice());
-//            material.setQuantity(Double.parseDouble(materialDto.getQuantity()));
-//            materialRepository.save(material);
-//        }
+    public Material save(Material materialDto) {
+        return materialRepository.save(materialDto);
     }
+
+@Override
+public Material findOne(String s, Integer i){
+        return materialRepository.findByNameAndNumberOfInvoice(s, i);
+}
 
     @Override
     public List<Material> findAll(){

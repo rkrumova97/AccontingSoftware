@@ -25,6 +25,12 @@ public class MachineServiceImpl implements MachineService {
     }
 
     @Override
+    public Machine save(Machine machineDto){
+        return machineRepository.save(machineDto);
+    }
+
+
+    @Override
     public void delete(MachineDto machineDto){
         machineRepository.delete(transformationService.DtoToEntity(machineDto));
     }
@@ -32,5 +38,10 @@ public class MachineServiceImpl implements MachineService {
     @Override
     public List<Machine> findAll(){
         return machineRepository.findAll();
+    }
+
+    @Override
+    public Machine findOne(String name, Integer invoice){
+        return machineRepository.findByNameAndNumberOfInvoice(name, invoice);
     }
 }

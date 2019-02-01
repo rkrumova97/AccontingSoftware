@@ -39,32 +39,58 @@ public class ViewerController<T extends Good> {
 
     @FXML
     public void initialize() {
-        utilService.changeScene(back, "/templates/accounting.fxml");
+        utilService.changeScene(back, "/views/accounting.fxml");
         TableColumn<T, String> id = new TableColumn<>("ID");
         TableColumn<T, String> name = new TableColumn<>("Име");
-        TableColumn<T, String> minAge = new TableColumn<>("Фактура");
+        TableColumn<T, String> invoice = new TableColumn<>("Фактура");
+        TableColumn<T, String> measurement = new TableColumn<>("Мярка");
+        TableColumn<T, String> quantity = new TableColumn<>("Количество");
+        TableColumn<T, String> price = new TableColumn<>("Единична Цена");
+        TableColumn<T, String> totalPrice = new TableColumn<>("Общо");
+        TableColumn<T, String> date = new TableColumn<>("Дата");
+        TableColumn<T, String> supplier = new TableColumn<>("Доставчик");
+
 
         category.setItems(FXCollections.observableArrayList("Koли", "ЛПС", "Материали", "Машини"));
 
-        table.getColumns().addAll(id, name, minAge);
+        table.getColumns().addAll(id, name, invoice, measurement, quantity, price, totalPrice, date, supplier);
 
         category.setOnAction(e -> {
             id.setCellValueFactory(
                     new PropertyValueFactory<>("id"));
             name.setCellValueFactory(
                     new PropertyValueFactory<>("name"));
-            minAge.setCellValueFactory(
+            invoice.setCellValueFactory(
                     new PropertyValueFactory<>("numberOfInvoice")
+            );
+            measurement.setCellValueFactory(
+                    new PropertyValueFactory<>("measurement")
+            );
+            quantity.setCellValueFactory(
+                    new PropertyValueFactory<>("quantity")
+            );
+            price.setCellValueFactory(
+                    new PropertyValueFactory<>("price")
+            );
+            totalPrice.setCellValueFactory(
+                    new PropertyValueFactory<>("totalPrice")
+            );
+            date.setCellValueFactory(
+                    new PropertyValueFactory<>("date")
+            );
+            supplier.setCellValueFactory(
+                    new PropertyValueFactory<>("supplier")
             );
 
             List list = getList(category.getValue());
             final ObservableList data = FXCollections.observableArrayList(list);
             table.setItems(data);
         });
-        utilService.changeScene(show, "/templates/graphics.fxml");
+        utilService.changeScene(show, "/views/graphics.fxml");
+        utilService.changeScene(back, "/views/accounting.fxml");
     }
 
-    private List getList(String value) {
+    public List getList(String value) {
         switch (value) {
             case "Koли":
                 return carService.findAll();

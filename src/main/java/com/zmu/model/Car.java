@@ -5,8 +5,8 @@ import lombok.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.io.File;
 import java.time.LocalDate;
+import java.util.Date;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -23,6 +23,9 @@ public class Car extends Good {
 
     @Column
     private String repair;
+
+    @Column
+    private Date repairDate;
 
     @Column
     private String inspection;
@@ -52,10 +55,17 @@ public class Car extends Good {
     private LocalDate endDateToll;
 
     @Column
-    private File talon;
+    private Double kilometers;
 
     @Column
-    private File invoiceFile;
+    @Setter(AccessLevel.NONE)
+    private Double fuel;
+
+    @Column
+    private Double fuelPrice;
+
+    @Column
+    private Double fuelTotalPrice;
 
     @Builder
     private Car(Long id, String name, String measurement, Double quantity, Double price, Double totalPrice, Integer numberOfInvoice, LocalDate localDate, String supplier,
@@ -65,8 +75,7 @@ public class Car extends Good {
                 String toll, Double inspectionPrice,
                 Double insurancePrice, Double tollPrice,
                 LocalDate endDateInspection, LocalDate endDateInsurance,
-                LocalDate endDateToll,
-                File talon, File invoiceFile) {
+                LocalDate endDateToll, Date repairDate) {
         super(id, name, measurement, quantity, price, totalPrice, numberOfInvoice, localDate, supplier);
         this.razhNorma = razhNorma;
         this.insurance = insurance;
@@ -79,8 +88,13 @@ public class Car extends Good {
         this.tollPrice = tollPrice;
         this.endDateInspection = endDateInspection;
         this.endDateInsurance = endDateInsurance;
-        this.talon = talon;
-        this.invoiceFile = invoiceFile;
         this.endDateToll = endDateToll;
+        this.repairDate = repairDate;
+    }
+
+    public void setFuel(Boolean moto) {
+        if (moto) {
+            fuel = kilometers * 5;
+        } else fuel = kilometers / 100 * razhNorma;
     }
 }

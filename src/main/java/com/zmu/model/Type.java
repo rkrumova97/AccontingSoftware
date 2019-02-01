@@ -1,9 +1,9 @@
 package com.zmu.model;
 
 public enum Type {
-    Clothes("Дрехи"),
-    LPS("Лпс"),
-    Shoes("Обувки");
+    Дрехи("Дрехи"),
+    Лпс("Лпс"),
+    Обувки("Обувки");
 
     private String name;
 
@@ -13,5 +13,12 @@ public enum Type {
 
     public String getName() {
         return name;
+    }
+
+    public  Type getType(String name){
+        if(name.equals(this.name)){
+            return this;
+        }
+        return null;
     }
 }

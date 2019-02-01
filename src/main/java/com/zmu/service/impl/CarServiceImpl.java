@@ -18,18 +18,30 @@ public class CarServiceImpl implements CarService {
     @Autowired
     private TransformationService transformationService;
 
+
     @Override
-    public Car save(CarDto carDto){
+    public Car save(CarDto carDto) {
         return carRepository.save(transformationService.DtoToEntity(carDto));
     }
 
     @Override
-    public void delete(CarDto carDto){
-         carRepository.delete(transformationService.DtoToEntity(carDto));
+    public Car save(Car car) {
+        return carRepository.save(car);
     }
 
     @Override
-    public List<Car> findAll(){
+    public void delete(CarDto carDto) {
+        carRepository.delete(transformationService.DtoToEntity(carDto));
+    }
+
+    @Override
+    public List<Car> findAll() {
         return carRepository.findAll();
     }
+
+    @Override
+    public Car findAllByNumberAndInvoice(Integer number, Integer invoice) {
+        return carRepository.findByNumberAndNumberOfInvoice(number, invoice);
+    }
+
 }

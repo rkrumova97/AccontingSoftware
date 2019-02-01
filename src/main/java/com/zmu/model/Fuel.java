@@ -1,7 +1,9 @@
 package com.zmu.model;
 
+import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -17,4 +19,15 @@ public class Fuel {
 
     @Column
     private String name;
+
+    @Column
+    @Setter(AccessLevel.NONE)
+    private Double litre;
+
+    @Column
+    private Double price;
+
+    public void setLitre(Car car) {
+        litre = car.getKilometers() / 100 * car.getRazhNorma();
+    }
 }
